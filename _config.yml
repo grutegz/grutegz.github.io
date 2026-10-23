@@ -2,6 +2,7 @@ title: grutegz
 description: devlogs and things
 url: "https://grutegz.github.io"
 baseurl: ""
+future: true
 
 collections:
   devlogs:
