@@ -2,7 +2,6 @@
   <div class="sidebar-header">
     <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
   </div>
-  <p style="color:red">POSTS: {{ site.posts | size }}</p>
   <nav class="sidebar-nav">
     {% include sidebar-section.html label="Devlogs" collection="devlogs" group_by="project" %}
     {% include sidebar-section.html label="Posts" collection="posts" %}
