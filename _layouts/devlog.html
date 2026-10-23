@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="devlog">
+  <header class="devlog-header">
+    {% if page.project %}
+      <a class="devlog-project" href="{{ '/devlogs/#' | append: page.project | relative_url }}">
+        {{ page.project }}
+      </a>
+    {% endif %}
+    <h1 class="devlog-title">{{ page.title }}</h1>
+    {% if page.date %}
+      <time class="devlog-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y-%m-%d" }}
+      </time>
+    {% endif %}
+  </header>
+
+  <div class="devlog-body">
+    {{ content }}
+  </div>
+</article>

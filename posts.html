@@ -1,0 +1,24 @@
+---
+layout: default
+title: all posts
+permalink: /posts/
+---
+
+<h1 class="page-title">ALL POSTS</h1>
+
+{% assign posts = site.posts | sort: "date" | reverse %}
+
+{% if posts.size == 0 %}
+  <p class="empty">No posts yet.</p>
+{% else %}
+  <ul class="devlog-list">
+    {% for p in posts %}
+      <li class="devlog-item">
+        <a class="devlog-link" href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        <time class="devlog-date" datetime="{{ p.date | date_to_xmlschema }}">
+          {{ p.date | date: "%Y-%m-%d" }}
+        </time>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

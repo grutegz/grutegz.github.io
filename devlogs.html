@@ -1,0 +1,32 @@
+---
+layout: default
+title: all devlogs
+permalink: /devlogs/
+---
+
+<h1 class="page-title">ALL DEVLOGS</h1>
+
+{% assign devlogs = site.devlogs | sort: "date" | reverse %}
+
+{% if devlogs.size == 0 %}
+  <p class="empty">No devlogs yet.</p>
+{% else %}
+  {% assign projects = devlogs | map: "project" | uniq %}
+
+  {% for project in projects %}
+    <section class="devlog-group project-{{ project | default: 'uncategorized' }}" id="{{ project | default: 'uncategorized' }}">
+      <h2 class="devlog-group-title">{{ project | default: "Uncategorized" }}</h2>
+      <ul class="devlog-list">
+        {% assign project_devlogs = devlogs | where: "project", project %}
+        {% for d in project_devlogs %}
+          <li class="devlog-item">
+            <a class="devlog-link" href="{{ d.url | relative_url }}">{{ d.title }}</a>
+            <time class="devlog-date" datetime="{{ d.date | date_to_xmlschema }}">
+              {{ d.date | date: "%Y-%m-%d" }}
+            </time>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+{% endif %}

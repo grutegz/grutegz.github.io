@@ -1,0 +1,24 @@
+title: grutegz
+description: devlogs and things
+url: "https://grutegz.github.io"
+baseurl: ""
+
+collections:
+  devlogs:
+    output: true
+
+defaults:
+  - scope:
+      path: "_devlogs/bluescape"
+    values:
+      project: bluescape
+      layout: devlog
+  - scope:
+      path: "_devlogs/github-site"
+    values:
+      project: github-site
+      layout: devlog
+  - scope:
+      path: "_posts"
+    values:
+      layout: post

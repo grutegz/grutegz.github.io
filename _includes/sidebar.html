@@ -1,0 +1,18 @@
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+  </div>
+
+  <nav class="sidebar-nav">
+    {% include sidebar-section.html label="Devlogs" collection="devlogs" group_by="project" %}
+    {% include sidebar-section.html label="Posts" collection="posts" %}
+  </nav>
+
+  <div class="sidebar-footer">
+
+    <a href="{{ '/about/' | relative_url }}">about</a>
+    <a href="https://grutegz.itch.io/" target="_blank" rel="noopener">itch</a>
+    <a href="{{ '/devlogs/' | relative_url }}">all devlogs</a>
+    <a href="{{ '/posts/' | relative_url }}">all posts</a>
+  </div>
+</aside>
