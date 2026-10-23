@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ site.title }}{% if page.title %}:{{ page.title }}{% endif %}</title>
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
 </head>
 <body class="{% if page.project %}project-{{ page.project }}{% endif %}">
   {% include sidebar.html %}
