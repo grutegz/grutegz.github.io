@@ -1,22 +1,22 @@
 /* tokens */
 :root {
-  --bg: #000000;
-  --bg-elev: #0d0d0d;
-  --bg-code: #1a1a1a;
-  --bg-hover: #1a1a1a;
+  --bg: #3b244e;
+  --bg-elev: #4c2448;
+  --bg-hover: #3b244e;
 
-  --border: #1f1f1f;
+  --border: #f46462;
   --radius: 3px;
   --radius-lg: 4px;
 
-  --text: #ffffff;
-  --text-dim: #999999;
-  --text-faint: #666666;
+  --text: #e89762;
+  --text-dim: #f46462;
+  --text-faint: #e89762;
 
-  --accent-bluescape: #4422ff;
+  --accent-bluescape: #34b9ad;
+  --accent-github-site: #ffffff;
 
   --sidebar-w: 260px;
-  --content-max: 760px;
+  --content-max: 1020px;
 }
 
 /* reset */
@@ -27,14 +27,10 @@
 }
 
 /* base */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: "Hack", monospace;
-  font-size: 0.95rem;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--text);
   background: var(--bg);
@@ -49,7 +45,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* shared: uppercase label */
+/* shared label */
 .nav-label,
 .devlog-project,
 .devlog-group-title {
@@ -77,6 +73,12 @@ a:hover {
   margin-bottom: 1.5rem;
 }
 
+.icons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .logo {
   font-weight: bold;
   font-size: 1rem;
@@ -89,18 +91,7 @@ a:hover {
 
 .nav-label {
   display: block;
-  margin: 0.5rem 0 0.5rem;
-}
-
-.nav-label + .nav-label {
-  margin-top: 1rem;
-}
-
-.nav-empty {
-  font-size: 0.8rem;
-  color: var(--text-faint);
-  padding: 0.25rem 0.5rem;
-  font-style: italic;
+  margin: 1rem 0 0.5rem;
 }
 
 .nav-project {
@@ -153,6 +144,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  padding-left: 2rem;
 }
 
 .site-main {
@@ -179,7 +171,7 @@ a:hover {
   color: var(--text);
 }
 
-/* devlog: article */
+/* devlog */
 .devlog {
   margin-bottom: 2.5rem;
 }
@@ -251,7 +243,7 @@ a:hover {
 }
 
 .project-github-site .devlog-project {
-  color: var(--text);
+  color: var(--accent-github-site);
 }
 
 /* markdown body */
@@ -276,7 +268,7 @@ a:hover {
 }
 
 .devlog-body code {
-  background: var(--bg-code);
+  background: var(--bg-hover);
   padding: 0.1rem 0.35rem;
   border-radius: var(--radius);
   font-size: 0.85em;
