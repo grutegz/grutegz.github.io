@@ -154,23 +154,6 @@ a:hover {
   padding: 2.5rem 2rem;
 }
 
-.site-footer {
-  border-top: 1px solid var(--border);
-  padding: 1rem 2rem;
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.8rem;
-  color: var(--text-faint);
-}
-
-.site-footer a {
-  color: var(--text-dim);
-}
-
-.site-footer a:hover {
-  color: var(--text);
-}
-
 /* devlog */
 .devlog {
   margin-bottom: 2.5rem;
@@ -304,13 +287,30 @@ a:hover {
 @media (max-width: 720px) {
   .sidebar {
     position: static;
-    width: auto;
+    width: 100%;
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--border);
+    padding: 1rem;
+  }
+
+  .sidebar-header {
+    margin-bottom: 1rem;
+  }
+  .sidebar-nav {
+    flex: initial;
+  }
+
+  .sidebar-footer {
+    margin-top: 1rem;
   }
 
   .site-wrap {
     margin-left: 0;
+    padding-left: 0;
+  }
+
+  .site-main {
+    padding: 1.5rem 1rem;
   }
 }
