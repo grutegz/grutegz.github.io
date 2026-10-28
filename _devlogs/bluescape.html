@@ -9,7 +9,7 @@ permalink: /devlogs/bluescape/
 </h1>
 
 <ul>
-    {% assign devlogs = site.devlogs | where: "project", page.project | sort: "date" | reverse %}
+    {% assign devlogs = site.devlogs | where: "project", "bluescape" | sort: "date" | reverse %}
     {% for d in devlogs %}
       {% if d.url != page.url %}
       <li class="devlog-item">

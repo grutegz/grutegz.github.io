@@ -8,14 +8,16 @@
   {% assign groups = items | map: include.group_by | uniq %}
   <ul>
     {% for group in groups %}
-      {% assign group_items = items | where: include.group_by, group %}
-      {% assign project = group_items | first %}
-      <li>
-        <a href="{{ project.url | relative_url }}"
-           {% if page.url == project.url %}class="active"{% endif %}>
-          {{ group | default: "Uncategorized" }}
-        </a>
-      </li>
+      {% if group != nil and group != "" %}
+        {% assign group_items = items | where: include.group_by, group %}
+        {% assign project = group_items | first %}
+        <li>
+          <a href="{{ project.url | relative_url }}"
+             {% if page.url == project.url %}class="active"{% endif %}>
+            {{ group }}
+          </a>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 
