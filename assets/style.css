@@ -145,14 +145,16 @@ a:hover {
   flex-direction: column;
   min-height: 100vh;
   padding-left: 2rem;
+  overflow-x: hidden;
 }
 
 .site-main {
   flex: 1;
-  max-width: var(--content-max);
-  width: 100%;
+  width: min(100%, var(--content-max));
+  margin: 0 auto;
   padding: 2.5rem 2rem;
 }
+
 
 /* devlog */
 .devlog {
@@ -181,6 +183,16 @@ a:hover {
 .devlog-date {
   color: var(--text-dim);
   font-size: 0.85rem;
+}
+
+.devlog-body img,
+.devlog-body video,
+.devlog-body iframe,
+.devlog-body svg,
+.devlog-body table {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* devlog: list */

@@ -2,23 +2,23 @@
 <span class="nav-label">{{ include.label }}</span>
 
 {% if items.size == 0 %}
-  <div class="nav-empty">No {{ include.label | downcase }} yet.</div>
+  <div class="nav-empty">Nothing here.</div>
+
 {% elsif include.group_by %}
   {% assign groups = items | map: include.group_by | uniq %}
-  {% for group in groups %}
-    <div class="nav-project">{{ group | default: "Uncategorized" }}</div>
-    <ul>
+  <ul>
+    {% for group in groups %}
       {% assign group_items = items | where: include.group_by, group %}
-      {% for item in group_items %}
-        <li>
-          <a href="{{ item.url | relative_url }}"
-             {% if page.url == item.url %}class="active"{% endif %}>
-            {{ item.title }}
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
-  {% endfor %}
+      {% assign project = group_items | first %}
+      <li>
+        <a href="{{ project.url | relative_url }}"
+           {% if page.url == project.url %}class="active"{% endif %}>
+          {{ group | default: "Uncategorized" }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
 {% else %}
   <ul>
     {% for item in items %}

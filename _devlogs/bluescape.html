@@ -1,0 +1,23 @@
+---
+layout: default
+title: bluescape
+permalink: /devlogs/bluescape/
+---
+
+<h1 class="page-title" style="color: var(--accent-bluescape);">
+    BLUESCAPE
+</h1>
+
+<ul>
+    {% assign devlogs = site.devlogs | where: "project", page.project | sort: "date" | reverse %}
+    {% for d in devlogs %}
+      {% if d.url != page.url %}
+      <li class="devlog-item">
+        <a class="devlog-link" href="{{ d.url | relative_url }}">{{ d.title }}</a>
+        <time class="devlog-date" datetime="{{ d.date | date_to_xmlschema }}">
+          {{ d.date | date: "%Y-%m-%d" }}
+        </time>
+      </li>
+      {% endif %}
+    {% endfor %}
+</ul>
