@@ -4,20 +4,24 @@
 {% if items.size == 0 %}
   <div class="nav-empty">Nothing here.</div>
 
-{% elsif include.group_by %}
-  {% assign groups = items | map: include.group_by | uniq %}
-  <ul>
-    {% for group in groups %}
-      {% if group != nil and group != "" %}
-        <li>
-          <a href="{{ '/devlogs/' | append: group | relative_url }}"
-             {% if page.url == '/devlogs/' | append: group | append: '/' %}class="active"{% endif %}>
-            {{ group }}
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+  {% elsif include.group_by %}
+    {% assign groups = items | map: include.group_by | uniq %}
+    <ul>
+      {% for group in groups %}
+        {% if group != nil and group != "" %}
+          {% assign group_slug = group | slugify %}
+          {% assign group_url = '/devlogs/' | append: group_slug | append: '/' %}
+
+          <li>
+            <a href="{{ group_url | relative_url }}"
+               {% if page.url == group_url %}class="active"{% endif %}>
+              {{ group }}
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
 
 {% else %}
   <ul>
