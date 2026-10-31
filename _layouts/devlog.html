@@ -4,7 +4,7 @@ layout: default
 <article class="devlog">
   <header class="devlog-header">
     {% if page.project %}
-      <a class="devlog-project" href="{{ '/devlogs/#' | append: page.project | relative_url }}">
+      <a class="devlog-project" href="{{ '/devlogs/' | append: page.project | relative_url }}">
         {{ page.project }}
       </a>
     {% endif %}
